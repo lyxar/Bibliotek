@@ -14,5 +14,11 @@ namespace DataLayer.Contexts
         {
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LibDB;User Id=LibUser;Password=P@ssw0rd;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+        }
     }
 }
