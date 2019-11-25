@@ -1,21 +1,18 @@
-﻿using DataLayer.Entities;
+﻿using DataLayer.Configuration;
+using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace DataLayer.Contexts
 {
     public class LibraryContext : DbContext
     {
-        DbSet<User> Users { get; set; }
-        DbSet<Book> Books { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Book> Books { get; set; }
 
-        public LibraryContext(DbContextOptions options) : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LibDB;User Id=LibUser;Password=P@ssw0rd;");
         }
     }
 }

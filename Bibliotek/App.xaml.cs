@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLayer.Contexts;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,12 @@ namespace Bibliotek
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<LibraryContext>();
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());           
+
+            var context = new LibraryContext();
+        }        
     }
 }
