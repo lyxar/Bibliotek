@@ -7,6 +7,8 @@ namespace Bibliotek.Services
 {
     public interface IBookDataService
     {
+        void AddBook(Book book);
         Book GetBookById(int id);
+        Book RemoveBook(string barcode);
     }
 }

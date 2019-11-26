@@ -14,9 +14,19 @@ namespace Bibliotek.Services
             _repository = repository;
         }
 
+        public void AddBook(Book book)
+        {
+            _repository.AddBook(book);
+        }
+
         public Book GetBookById(int id)
         {
             return _repository.GetABookById(id);
+        }
+
+        public Book RemoveBook(string barcode)
+        {
+            return _repository.RemoveBook(barcode);
         }
     }
 }

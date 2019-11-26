@@ -18,11 +18,23 @@ namespace Bibliotek
             SimpleIoc.Default.Register<LibraryContext>();
 
             SimpleIoc.Default.Register<MainViewModel>(true);
+            SimpleIoc.Default.Register<RemoveBookViewModel>(true);
+            SimpleIoc.Default.Register<AddBookViewModel>(true);
         }
 
-        public MainViewModel MainViewmodel
+        public MainViewModel MainViewModel
         {
             get { return SimpleIoc.Default.GetInstance<MainViewModel>(); }
+        }
+
+        public RemoveBookViewModel RemoveBookViewModel
+        {
+            get { return SimpleIoc.Default.GetInstance<RemoveBookViewModel>(); }
+        }
+
+        public AddBookViewModel AddBookViewModel
+        {
+            get { return SimpleIoc.Default.GetInstance<AddBookViewModel>(); }
         }
     }
 }

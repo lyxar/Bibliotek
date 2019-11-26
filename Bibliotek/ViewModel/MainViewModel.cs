@@ -1,15 +1,15 @@
 ﻿using Bibliotek.Services;
 using DataLayer.Entities;
+using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Bibliotek.ViewModel
 {    
-    public class MainViewModel
+    public class MainViewModel : BaseViewModel
     {
         private IBookDataService _bookservice;
-        private Book book;
 
         public MainViewModel(IBookDataService bookDataService)
         {
@@ -19,7 +19,6 @@ namespace Bibliotek.ViewModel
 
         private void LoadData()
         {
-            book = _bookservice.GetBookById(1);
         }
     }
 }
