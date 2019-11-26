@@ -14,7 +14,6 @@ namespace DataLayer.Entities
         public string Description { get; set; }
         public string Author { get; set; }
         public DateTime? BorrowedDate { get; set; }
-        public int? UserFk { get; set; }
 
         public User User { get; set; }
     }

@@ -11,7 +11,7 @@ namespace Bibliotek.ViewModel
 {
     public class RemoveBookViewModel : BaseViewModel
     {
-        private IBookDataService _bookservice;
+        private IBookDataService _bookService;
         private string _barcode;
         private string _result;
         public string Barcode 
@@ -27,7 +27,7 @@ namespace Bibliotek.ViewModel
 
         public RemoveBookViewModel(IBookDataService bookDataService)
         {
-            _bookservice = bookDataService;
+            _bookService = bookDataService;
             LoadCommands();
         }
 
@@ -41,7 +41,7 @@ namespace Bibliotek.ViewModel
 
         private void RemoveBookMethod()
         {
-            var book = _bookservice.RemoveBook(Barcode);
+            var book = _bookService.RemoveBook(Barcode);
             Barcode = string.Empty;
             Result = book.Title + " has been removed";
         }

@@ -22,10 +22,10 @@
                     <Setter Property="Margin" Value="5,5,5,5" />
                 </Style>
             </StackPanel.Resources>
-            <Button Content="Add Book"/>
-            <Button Content="Remove Book"/>
-            <Button Content="See Borrowed Books"/>
-            <Button Content="Borrow Book"/>
+            <Button Content="Add Book" Command="{Binding ShowAddBookCommand}"/>
+            <Button Content="Remove Book" Command="{Binding ShowRemoveBookCommand}"/>
+            <Button Content="See Borrowed Books" Command="{Binding ShowBorrowedBooksCommand}"/>
+            <Button Content="Borrow Book" Command="{Binding ShowBorrowBookCommand}"/>
             <Button Content="Return Book"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">

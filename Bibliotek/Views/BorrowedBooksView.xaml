@@ -1,0 +1,26 @@
+﻿<Window x:Class="Bibliotek.Views.BorrowedBooksView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bibliotek.Views"
+        mc:Ignorable="d"
+        DataContext="{Binding BorrowedBooksViewModel, Source={StaticResource ViewModelLocator}}"
+        Title="BorrowedBooksView" Height="450" Width="800">
+    <Grid>
+        <DataGrid ItemsSource="{Binding Books}" AutoGenerateColumns="False">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="{Binding BorrowedDate, Converter={StaticResource BorrowedDateToColor}}"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding User.FullName}" />
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}"/>
+                <DataGridTextColumn Header="Borrowed date" Binding="{Binding BorrowedDate}"/>                
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Bibliotek"
-             StartupUri="Views/AddBookView.xaml">
+             xmlns:converter="clr-namespace:Bibliotek.Converters"
+             StartupUri="Views/MainView.xaml">
     <Application.Resources>
         <local:ViewModelLocator x:Key="ViewModelLocator" />
+        <converter:BorrowedDateToColor x:Key="BorrowedDateToColor" />
     </Application.Resources>
 </Application>

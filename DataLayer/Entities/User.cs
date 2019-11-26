@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace DataLayer.Entities
@@ -11,6 +12,6 @@ namespace DataLayer.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName => $"{FirstName} {LastName}";
-        public List<Book> Books { get; set; }
+        public ObservableCollection<Book> Books { get; set; }
     }
 }

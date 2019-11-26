@@ -1,0 +1,31 @@
+﻿<Window x:Class="Bibliotek.Views.BorrowBookView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bibliotek.Views"
+        mc:Ignorable="d"
+        DataContext="{Binding BorrowBookViewModel, Source={StaticResource ViewModelLocator}}"
+        Title="BorrowBookView" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="1" FontSize="24" VerticalAlignment="Center" Content="Rfid"/>
+        <TextBox Text="{Binding Rfid}" Grid.Row="1" Grid.Column="2" FontSize="24"/>
+        <Label Grid.Row="2" Grid.Column="1" FontSize="24" VerticalAlignment="Top" Content="Barcode"/>
+        <TextBox Text="{Binding Barcode}" Grid.Row="2" Grid.Column="2" FontSize="24"/>
+        <Button Command="{Binding BorrowBookCommand}" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Content="Borrow" FontSize="24" Margin="50,10,50,10"/>
+    </Grid>
+</Window>

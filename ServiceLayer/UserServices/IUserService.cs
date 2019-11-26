@@ -1,12 +1,11 @@
 ﻿using DataLayer.Entities;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Text;
 
-namespace DataLayer.Repsositories
+namespace ServiceLayer.UserServices
 {
-    public interface IUserRepository
+    public interface IUserService
     {
         User GetBorrowedBooks(string rfid);
     }

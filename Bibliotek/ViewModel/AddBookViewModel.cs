@@ -7,13 +7,15 @@ namespace Bibliotek.ViewModel
 {
     public class AddBookViewModel : BaseViewModel
     {
-        private IBookDataService _bookservice;
+        private IBookDataService _bookService;
+        private IDialogService _dialogService;
         
         public Book Book { get; set; }
 
-        public AddBookViewModel(IBookDataService bookDataService)
+        public AddBookViewModel(IBookDataService bookDataService, IDialogService dialogService)
         {
-            _bookservice = bookDataService;
+            _bookService = bookDataService;
+            _dialogService = dialogService;
             Book = new Book();
             LoadCommands();
         }
@@ -28,7 +30,9 @@ namespace Bibliotek.ViewModel
 
         private void AddBookMethod()
         {
-            _bookservice.AddBook(Book);
+            _bookService.AddBook(Book);
+            Book = null;
+            _dialogService.CloseAddDialog();
         }
         #endregion
 

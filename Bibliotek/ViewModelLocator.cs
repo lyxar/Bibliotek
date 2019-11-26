@@ -13,6 +13,7 @@ namespace Bibliotek
     {
         public ViewModelLocator()
         {
+            SimpleIoc.Default.Register<IDialogService, DialogService>();
             SimpleIoc.Default.Register<IBookDataService, BookDataService>();
             SimpleIoc.Default.Register<IBookRepository, BookRepository>();
             SimpleIoc.Default.Register<LibraryContext>();
@@ -20,6 +21,8 @@ namespace Bibliotek
             SimpleIoc.Default.Register<MainViewModel>(true);
             SimpleIoc.Default.Register<RemoveBookViewModel>(true);
             SimpleIoc.Default.Register<AddBookViewModel>(true);
+            SimpleIoc.Default.Register<BorrowedBooksViewModel>(true);
+            SimpleIoc.Default.Register<BorrowBookViewModel>(true);
         }
 
         public MainViewModel MainViewModel
@@ -35,6 +38,16 @@ namespace Bibliotek
         public AddBookViewModel AddBookViewModel
         {
             get { return SimpleIoc.Default.GetInstance<AddBookViewModel>(); }
+        }
+
+        public BorrowedBooksViewModel BorrowedBooksViewModel
+        {
+            get { return SimpleIoc.Default.GetInstance<BorrowedBooksViewModel>(); }
+        }
+
+        public BorrowBookViewModel BorrowBookViewModel
+        {
+            get { return SimpleIoc.Default.GetInstance<BorrowBookViewModel>(); }
         }
     }
 }

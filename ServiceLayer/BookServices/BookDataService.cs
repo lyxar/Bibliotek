@@ -2,6 +2,7 @@
 using DataLayer.Repsositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Bibliotek.Services
@@ -19,9 +20,19 @@ namespace Bibliotek.Services
             _repository.AddBook(book);
         }
 
+        public void BorrowBook(string rfid, string barcode)
+        {
+            _repository.BorrowBook(rfid, barcode);
+        }
+
         public Book GetBookById(int id)
         {
             return _repository.GetABookById(id);
+        }
+
+        public ObservableCollection<Book> GetBorrowedBooks()
+        {
+            return _repository.GetAllBorrowedBooks();
         }
 
         public Book RemoveBook(string barcode)
