@@ -20,6 +20,7 @@ namespace Bibliotek
 
             SimpleIoc.Default.Register<MainViewModel>(true);
             SimpleIoc.Default.Register<RemoveBookViewModel>(true);
+            SimpleIoc.Default.Register<ReturnBookViewModel>(true);
             SimpleIoc.Default.Register<AddBookViewModel>(true);
             SimpleIoc.Default.Register<BorrowedBooksViewModel>(true);
             SimpleIoc.Default.Register<BorrowBookViewModel>(true);
@@ -33,6 +34,10 @@ namespace Bibliotek
         public RemoveBookViewModel RemoveBookViewModel
         {
             get { return SimpleIoc.Default.GetInstance<RemoveBookViewModel>(); }
+        }
+        public ReturnBookViewModel ReturnBookViewModel
+        {
+            get { return SimpleIoc.Default.GetInstance<ReturnBookViewModel>(); }
         }
 
         public AddBookViewModel AddBookViewModel

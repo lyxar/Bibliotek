@@ -18,12 +18,7 @@ namespace Bibliotek.ViewModel
         {
             _bookService = bookDataService;
             _dialogService = dialogService;
-            LoadData();
             LoadCommands();
-        }
-
-        private void LoadData()
-        {
         }
 
         #region COMMANDS
@@ -31,12 +26,14 @@ namespace Bibliotek.ViewModel
         {
             ShowAddBookCommand = new RelayCommand(ShowAddBookMethod);
             ShowRemoveBookCommand = new RelayCommand(ShowRemoveBookMethod);
+            ShowReturnBookCommand = new RelayCommand(ShowReturnBookMethod);
             ShowBorrowedBooksCommand = new RelayCommand(ShowBorrowedBooksMethod);
             ShowBorrowBookCommand = new RelayCommand(ShowBorrowBookMethod);
         }
 
         public ICommand ShowAddBookCommand { get; set; }
         public ICommand ShowRemoveBookCommand { get; set; }
+        public ICommand ShowReturnBookCommand { get; set; }
         public ICommand ShowBorrowedBooksCommand { get; set; }
         public ICommand ShowBorrowBookCommand { get; set; }
 
@@ -47,6 +44,11 @@ namespace Bibliotek.ViewModel
         private void ShowRemoveBookMethod()
         {
             _dialogService.ShowRemoveDialog();
+        }
+
+        private void ShowReturnBookMethod()
+        {
+            _dialogService.ShowReturnDialog();
         }
         private void ShowBorrowedBooksMethod()
         {

@@ -1,31 +1,29 @@
 ﻿using Bibliotek.Services;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 
 namespace Bibliotek.ViewModel
 {
-    public class RemoveBookViewModel : BaseViewModel
+    public class ReturnBookViewModel : BaseViewModel
     {
         private IBookDataService _bookService;
         private string _barcode;
         private string _result;
-        public string Barcode 
+        public string Barcode
         {
-            get { return _barcode; } 
+            get { return _barcode; }
             set { _barcode = value; OnPropertyChanged("Barcode"); }
         }
         public string Result
         {
             get { return _result; }
-            set { _result = value;  OnPropertyChanged("Result"); }
+            set { _result = value; OnPropertyChanged("Result"); }
         }
 
-        public RemoveBookViewModel(IBookDataService bookDataService)
+        public ReturnBookViewModel(IBookDataService bookDataService)
         {
             _bookService = bookDataService;
             LoadCommands();
@@ -33,23 +31,22 @@ namespace Bibliotek.ViewModel
 
 
         #region COMMANDS
-        public ICommand RemoveBookCommand { get; private set; }
+        public ICommand ReturnBookCommand { get; private set; }
         private void LoadCommands()
         {
-            RemoveBookCommand = new RelayCommand(RemoveBookMethod);
-        }        
+            ReturnBookCommand = new RelayCommand(ReturnBookMethod);
+        }
 
-        private void RemoveBookMethod()
+        private void ReturnBookMethod()
         {
-            var book = _bookService.RemoveBook(Barcode);
+            var book = _bookService.ReturnBook(Barcode);
             Barcode = string.Empty;
             if (book != null)
-                Result = book.Title + " has been removed";
+                Result = book.Title + " has been returned";
             else
-                Result = "The Book could not be found";
-            
+                Result = "The book could not be found";
         }
-        
+
         #endregion
     }
 }

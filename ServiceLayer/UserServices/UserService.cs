@@ -13,6 +13,19 @@ namespace ServiceLayer.UserServices
         {
             _repository = repository;
         }
+
+        public void AddUser(User user)
+        {
+            _repository.AddUser(user);
+        }
+
+        public User DeleteUserRfid(string rfid)
+        {
+            User selectedUser = _repository.GetUserRfid(rfid);
+            _repository.DeleteUser(selectedUser);
+            return selectedUser;
+        }
+
         public User GetBorrowedBooks(string rfid)
         {
             return _repository.GetBorrowedBooks(rfid);

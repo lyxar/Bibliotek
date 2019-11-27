@@ -12,6 +12,7 @@ namespace Bibliotek.Services
         void BorrowBook(string rfid, string barcode);
         Book GetBookById(int id);
         Book RemoveBook(string barcode);
+        Book ReturnBook(string barcode);
         ObservableCollection<Book> GetBorrowedBooks();
     }
 }

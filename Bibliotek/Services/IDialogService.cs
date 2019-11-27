@@ -10,6 +10,7 @@ namespace Bibliotek.Services
         void CloseAddDialog();
 
         void ShowRemoveDialog();
+        void ShowReturnDialog();
 
         void ShowBorrowedBooksDialog();
 

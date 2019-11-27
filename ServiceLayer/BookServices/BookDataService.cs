@@ -39,5 +39,10 @@ namespace Bibliotek.Services
         {
             return _repository.RemoveBook(barcode);
         }
+
+        public Book ReturnBook(string barcode)
+        {
+            return _repository.ReturnBook(barcode);
+        }
     }
 }

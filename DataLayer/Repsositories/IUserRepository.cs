@@ -8,6 +8,9 @@ namespace DataLayer.Repsositories
 {
     public interface IUserRepository
     {
+        void AddUser(User user);
+        User GetUserRfid(string rfid);
+        User DeleteUser(User user);
         User GetBorrowedBooks(string rfid);
     }
 }

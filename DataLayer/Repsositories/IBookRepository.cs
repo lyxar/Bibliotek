@@ -10,6 +10,7 @@ namespace DataLayer.Repsositories
     {
         void AddBook(Book book);
         void BorrowBook(string rfid, string barcode);
+        Book ReturnBook(string barcode);
         Book GetABookById(int id);
         Book RemoveBook(string barcode);
         ObservableCollection<Book> GetAllBorrowedBooks();

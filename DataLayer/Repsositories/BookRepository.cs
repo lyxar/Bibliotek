@@ -26,7 +26,8 @@ namespace DataLayer.Repsositories
         {
             Book book = _context.Books.Where(book => book.Barcode == barcode).FirstOrDefault();
             book.BorrowedDate = DateTime.Now;
-            _context.Users.Where(user => user.RFID == rfid).FirstOrDefault().Books.Add(book);
+            User user = _context.Users.Where(user => user.RFID == rfid).FirstOrDefault();
+            user.Books.Add(book);
             _context.SaveChanges();
         }
 
@@ -50,11 +51,34 @@ namespace DataLayer.Repsositories
 
         public Book RemoveBook(string barcode)
         {
-            Book selected = _context.Books.Where(b => b.Barcode == barcode).SingleOrDefault();
-            _context.Books.Remove(selected);
-            _context.SaveChanges();
-            return selected;
+            try
+            {
+                Book selected = _context.Books.Where(b => b.Barcode == barcode).SingleOrDefault();
+                _context.Books.Remove(selected);
+                _context.SaveChanges();
+                return selected;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
+        public Book ReturnBook(string barcode)
+        {
+            try
+            {
+                Book selected = _context.Books.Where(book => book.Barcode == barcode).SingleOrDefault();
+                selected.BorrowedDate = null;
+                selected.User = null;
+                _context.SaveChanges();
+                return selected;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            
+        }
     }
 }
