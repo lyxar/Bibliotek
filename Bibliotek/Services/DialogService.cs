@@ -13,6 +13,8 @@ namespace Bibliotek.Services
         Window BorrowedBooksView = null;
         Window BorrowBookView = null;
         Window ReturnBookView = null;
+        Window AddUserView = null;
+        Window RemoveUserView = null;
 
         public void ShowAddDialog()
         {
@@ -47,6 +49,30 @@ namespace Bibliotek.Services
         {
             BorrowBookView = new BorrowBookView();
             BorrowBookView.ShowDialog();
+        }
+
+        public void ShowAddUserDialog()
+        {
+            AddUserView = new AddUserView();
+            AddUserView.ShowDialog();
+        }
+
+        public void CloseAddUserDialog()
+        {
+            if(AddUserView != null)
+                AddUserView.Close();
+        }
+
+        public void ShowRemoveUserDialog()
+        {
+            RemoveUserView = new RemoveUserView();
+            RemoveUserView.ShowDialog();
+        }
+
+        public void CloseRemoveUserDialog()
+        {
+            if (RemoveUserView != null)
+                RemoveUserView.Close();
         }
     }
 }

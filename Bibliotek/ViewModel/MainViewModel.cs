@@ -29,6 +29,8 @@ namespace Bibliotek.ViewModel
             ShowReturnBookCommand = new RelayCommand(ShowReturnBookMethod);
             ShowBorrowedBooksCommand = new RelayCommand(ShowBorrowedBooksMethod);
             ShowBorrowBookCommand = new RelayCommand(ShowBorrowBookMethod);
+            ShowAddUserCommand = new RelayCommand(ShowAddUserMethod);
+            ShowRemoveUserCommand = new RelayCommand(ShowRemoveUserMethod);
         }
 
         public ICommand ShowAddBookCommand { get; set; }
@@ -36,6 +38,8 @@ namespace Bibliotek.ViewModel
         public ICommand ShowReturnBookCommand { get; set; }
         public ICommand ShowBorrowedBooksCommand { get; set; }
         public ICommand ShowBorrowBookCommand { get; set; }
+        public ICommand ShowAddUserCommand { get; set; }
+        public ICommand ShowRemoveUserCommand { get; set; }
 
         private void ShowAddBookMethod()
         {
@@ -57,6 +61,15 @@ namespace Bibliotek.ViewModel
         private void ShowBorrowBookMethod()
         {
             _dialogService.ShowBorrowBookDialog();
+        }
+
+        private void ShowAddUserMethod()
+        {
+            _dialogService.ShowAddUserDialog();
+        }
+        private void ShowRemoveUserMethod()
+        {
+            _dialogService.ShowRemoveUserDialog();
         }
         #endregion
     }

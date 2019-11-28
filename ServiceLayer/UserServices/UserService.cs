@@ -21,9 +21,16 @@ namespace ServiceLayer.UserServices
 
         public User DeleteUserRfid(string rfid)
         {
-            User selectedUser = _repository.GetUserRfid(rfid);
-            _repository.DeleteUser(selectedUser);
-            return selectedUser;
+            try
+            {
+                User selectedUser = _repository.GetUserRfid(rfid);
+                _repository.DeleteUser(selectedUser);
+                return selectedUser;
+            }
+            catch (Exception)
+            {
+                return null;
+            }            
         }
 
         public User GetBorrowedBooks(string rfid)

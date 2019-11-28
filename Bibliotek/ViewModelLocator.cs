@@ -3,6 +3,7 @@ using Bibliotek.ViewModel;
 using DataLayer.Contexts;
 using DataLayer.Repsositories;
 using GalaSoft.MvvmLight.Ioc;
+using ServiceLayer.UserServices;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,8 @@ namespace Bibliotek
             SimpleIoc.Default.Register<IDialogService, DialogService>();
             SimpleIoc.Default.Register<IBookDataService, BookDataService>();
             SimpleIoc.Default.Register<IBookRepository, BookRepository>();
+            SimpleIoc.Default.Register<IUserService, UserService>();
+            SimpleIoc.Default.Register<IUserRepository, UserRepository>();
             SimpleIoc.Default.Register<LibraryContext>();
 
             SimpleIoc.Default.Register<MainViewModel>(true);
@@ -24,6 +27,9 @@ namespace Bibliotek
             SimpleIoc.Default.Register<AddBookViewModel>(true);
             SimpleIoc.Default.Register<BorrowedBooksViewModel>(true);
             SimpleIoc.Default.Register<BorrowBookViewModel>(true);
+            SimpleIoc.Default.Register<AddUserViewModel>(true);
+            SimpleIoc.Default.Register<RemoveUserViewModel>(true);
+
         }
 
         public MainViewModel MainViewModel
@@ -53,6 +59,16 @@ namespace Bibliotek
         public BorrowBookViewModel BorrowBookViewModel
         {
             get { return SimpleIoc.Default.GetInstance<BorrowBookViewModel>(); }
+        }
+
+        public AddUserViewModel AddUserViewModel
+        {
+            get { return SimpleIoc.Default.GetInstance<AddUserViewModel>(); }
+        }
+
+        public RemoveUserViewModel RemoveUserViewModel
+        {
+            get { return SimpleIoc.Default.GetInstance<RemoveUserViewModel>(); }
         }
     }
 }

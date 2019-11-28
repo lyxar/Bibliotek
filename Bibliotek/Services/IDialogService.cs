@@ -15,5 +15,11 @@ namespace Bibliotek.Services
         void ShowBorrowedBooksDialog();
 
         void ShowBorrowBookDialog();
+
+        void ShowAddUserDialog();
+        void CloseAddUserDialog();
+
+        void ShowRemoveUserDialog();
+        void CloseRemoveUserDialog();
     }
 }
