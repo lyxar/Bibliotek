@@ -39,8 +39,10 @@ namespace Bibliotek.ViewModel
             RemoveBookCommand = new RelayCommand(RemoveBookMethod);
         }        
 
+        //Tries to remove the book, notifies the user if the book have been removed.
         private void RemoveBookMethod()
         {
+            //Returns the book object if the book could be found and removed.
             var book = _bookService.RemoveBook(Barcode);
             Barcode = string.Empty;
             if (book != null)

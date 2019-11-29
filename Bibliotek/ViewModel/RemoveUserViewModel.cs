@@ -1,5 +1,6 @@
 ﻿using Bibliotek.Services;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using ServiceLayer.UserServices;
 using System;
 using System.Collections.Generic;
@@ -40,13 +41,16 @@ namespace Bibliotek.ViewModel
             RemoveUserCommand = new RelayCommand(RemoveUserMethod);
         }
 
+        //Tries to delete the user with the specified RFID. 
+        //Notifies the messenger if the deletion is succsesful and closes the Window
+        //If the deletion is not succesful the user will be notified with a message in the current Window
         private void RemoveUserMethod()
         {
             var user = _userService.DeleteUserRfid(RFID);
             RFID = string.Empty;
             if (user != null)
-            { 
-                Result = $"{user.FirstName} {user.LastName} has been removed";
+            {
+                Messenger.Default.Send<NotificationMessage>(new NotificationMessage($"{user.FirstName} {user.LastName} has been removed"));
                 _dialogService.CloseRemoveUserDialog();
             }
             else

@@ -3,10 +3,12 @@ using Bibliotek.ViewModel;
 using DataLayer.Contexts;
 using DataLayer.Repsositories;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using ServiceLayer.UserServices;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace Bibliotek
 {
@@ -21,6 +23,7 @@ namespace Bibliotek
             SimpleIoc.Default.Register<IUserRepository, UserRepository>();
             SimpleIoc.Default.Register<LibraryContext>();
 
+            #region ViewModels Register
             SimpleIoc.Default.Register<MainViewModel>(true);
             SimpleIoc.Default.Register<RemoveBookViewModel>(true);
             SimpleIoc.Default.Register<ReturnBookViewModel>(true);
@@ -29,9 +32,12 @@ namespace Bibliotek
             SimpleIoc.Default.Register<BorrowBookViewModel>(true);
             SimpleIoc.Default.Register<AddUserViewModel>(true);
             SimpleIoc.Default.Register<RemoveUserViewModel>(true);
+            #endregion
 
+            Messenger.Default.Register<NotificationMessage>(this, NotifyUserMethod);
         }
 
+        #region ViewModelProperties
         public MainViewModel MainViewModel
         {
             get { return SimpleIoc.Default.GetInstance<MainViewModel>(); }
@@ -69,6 +75,11 @@ namespace Bibliotek
         public RemoveUserViewModel RemoveUserViewModel
         {
             get { return SimpleIoc.Default.GetInstance<RemoveUserViewModel>(); }
+        }
+        #endregion
+        private void NotifyUserMethod(NotificationMessage message)
+        {
+            MessageBox.Show(message.Notification);
         }
     }
 }
