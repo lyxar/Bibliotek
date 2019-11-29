@@ -42,5 +42,5 @@ Der skal udvikles en platform til et Bibliotek system, som skal følge disse kra
 
 ## Kode diagram
 
-<img src="https://i.imgur.com/oih7UkQ.png">
+<img src="https://i.imgur.com/a7wt0a9.png">
 
