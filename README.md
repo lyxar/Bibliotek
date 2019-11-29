@@ -1,4 +1,4 @@
-# Krav til WPF-Program
+# Krav til WPF-Program "Bilblioteket"
 Der skal udvikles en platform til et Bibliotek system, som skal følge disse krav:
 ### Generelle krav
  - [x] Projektet skal følge MVVM
