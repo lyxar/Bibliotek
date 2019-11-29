@@ -5,8 +5,8 @@ Der skal udvikles en platform til et Bibliotek system, som skal følge disse kra
  - [x] Projektet skal gøre brug af Entity Framework
  - [x] Bøger skal gemmes ved hjælp af en stregkode
  - [x] Bruger skal gemmes ved hjælp af en RFID kode
- - [ ] Der skal være mulighed for CRUD af bøger
- - [ ] Der skal være mulighed for CRUD af bruger
+ - [x] Der skal være mulighed for CRUD af bøger
+ - [x] Der skal være mulighed for CRUD af bruger
  - [x] Der skal kunne ses en liste over alle udlånte bøger
 	- [ ] Udlånte bøger skal sorteres efter lånetid
 	- [ ] Eventuelt paging
