@@ -40,3 +40,7 @@ Der skal udvikles en platform til et Bibliotek system, som skal følge disse kra
 
 <img src="https://i.imgur.com/VUmtGfi.png">
 
+## Kode diagram
+
+<img src="https://i.imgur.com/oih7UkQ.png">
+
