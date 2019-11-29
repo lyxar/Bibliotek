@@ -14,6 +14,7 @@ namespace Bibliotek.ViewModel
         private IUserService _userService;
         private IDialogService _dialogService;
 
+        //The user that will be used to bind in the Xaml/UI
         public User User { get; set; }
 
         public AddUserViewModel(IUserService userService, IDialogService dialogService)
@@ -32,9 +33,13 @@ namespace Bibliotek.ViewModel
             AddUserCommand = new RelayCommand(AddUserMethod);
         }
 
+        //The method for the add user command
         private void AddUserMethod()
         {
             _userService.AddUser(User);
+            //Clears the user so it is ready for the next one
+            User = null;
+            //Closes the window
             _dialogService.CloseAddUserDialog();
         }
         #endregion

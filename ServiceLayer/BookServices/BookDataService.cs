@@ -20,9 +20,9 @@ namespace Bibliotek.Services
             _repository.AddBook(book);
         }
 
-        public void BorrowBook(string rfid, string barcode)
+        public Book BorrowBook(string rfid, string barcode)
         {
-            _repository.BorrowBook(rfid, barcode);
+           return _repository.BorrowBook(rfid, barcode);
         }
 
         public Book GetBookById(int id)

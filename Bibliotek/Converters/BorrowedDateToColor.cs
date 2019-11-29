@@ -8,8 +8,10 @@ namespace Bibliotek.Converters
 {
     public class BorrowedDateToColor : IValueConverter
     {
+        //Converter used to change the color of a specifik item depending on the amount of time a book is borrowed
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            //Compares the time of the borrowed book with the current time and gets the day difference.
             int borrowedDays = (DateTime.Today - (DateTime)value).Days;
             if (borrowedDays > 10)
             {
@@ -24,7 +26,7 @@ namespace Bibliotek.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            return value;
         }
     }
 }

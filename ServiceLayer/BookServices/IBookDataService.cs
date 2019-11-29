@@ -9,7 +9,7 @@ namespace Bibliotek.Services
     public interface IBookDataService
     {
         void AddBook(Book book);
-        void BorrowBook(string rfid, string barcode);
+        Book BorrowBook(string rfid, string barcode);
         Book GetBookById(int id);
         Book RemoveBook(string barcode);
         Book ReturnBook(string barcode);

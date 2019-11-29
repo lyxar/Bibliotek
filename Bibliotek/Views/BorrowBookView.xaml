@@ -22,6 +22,7 @@
             <RowDefinition/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Content="{Binding Result}"/>
         <Label Grid.Row="1" Grid.Column="1" FontSize="24" VerticalAlignment="Center" Content="Rfid"/>
         <TextBox Text="{Binding Rfid}" Grid.Row="1" Grid.Column="2" FontSize="24"/>
         <Label Grid.Row="2" Grid.Column="1" FontSize="24" VerticalAlignment="Top" Content="Barcode"/>

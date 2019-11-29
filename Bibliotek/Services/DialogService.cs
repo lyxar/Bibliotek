@@ -8,6 +8,7 @@ namespace Bibliotek.Services
 {
     public class DialogService : IDialogService
     {
+        //This service is used to display and close windows from the ViewModel
         Window AddBookView = null;
         Window RemoveBookView = null;
         Window BorrowedBooksView = null;

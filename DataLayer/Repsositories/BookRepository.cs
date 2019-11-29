@@ -22,13 +22,21 @@ namespace DataLayer.Repsositories
             _context.SaveChanges();
         }
 
-        public void BorrowBook(string rfid, string barcode)
+        public Book BorrowBook(string rfid, string barcode)
         {
-            Book book = _context.Books.Where(book => book.Barcode == barcode).FirstOrDefault();
-            book.BorrowedDate = DateTime.Now;
-            User user = _context.Users.Where(user => user.RFID == rfid).FirstOrDefault();
-            user.Books.Add(book);
-            _context.SaveChanges();
+            try
+            {
+                Book book = _context.Books.Where(book => book.Barcode == barcode).FirstOrDefault();
+                book.BorrowedDate = DateTime.Now;
+                User user = _context.Users.Where(user => user.RFID == rfid).FirstOrDefault();
+                user.Books.Add(book);
+                _context.SaveChanges();
+                return book;
+            }
+            catch (Exception)
+            {
+                return null;
+            }            
         }
 
         public Book GetABookById(int id)

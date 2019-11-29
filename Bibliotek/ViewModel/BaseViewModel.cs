@@ -3,6 +3,7 @@ using System.ComponentModel;
 
 namespace Bibliotek.ViewModel
 {
+    //Base ViewModel used for the propertychanged event
     public class BaseViewModel : ViewModelBase, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
